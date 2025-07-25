@@ -52,23 +52,7 @@ const Form = (props) => {
             })
             .then((data) => {
                 ctx.spinnerHandler(false);
-
-                const date = new Date(data.post.createdAt);
-
-                ctx.formInputsHandler({
-                    _id: data.post._id,
-                    title: data.post.title,
-                    author: data.post.author,
-                    imageUrl: data.post.imageUrl,
-                    content: data.post.content,
-                    createdAt: {
-                        year: date.getFullYear(),
-                        month: date.getMonth(),
-                        day: date.getDay(),
-                    },
-                });
                 ctx.getItemsFromServer(); 
-
                 props.onClickCancel();
             })
             .catch((err) => {
